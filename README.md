@@ -34,7 +34,7 @@ PRIMARY KEY (`o_id`)
 ##### 插入订单信息
 INSERT INTO orders(o_id, commodity, money, status, w_id) VALUES ('1', '苹果', '20', '1', '1');
 INSERT INTO orders(o_id, commodity, money, status, w_id) VALUES ('2', '胡萝卜', '20', '2', '1');
-
+~~~
 
 #### 交易记录表
 ~~~java
