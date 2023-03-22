@@ -6,6 +6,7 @@
 4. 查询用户钱包金额变动明细的接口
 
 #### 钱包表
+~~~java
 CREATE TABLE `wallet` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `username` varchar(255) DEFAULT NULL,
@@ -15,6 +16,8 @@ PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ##### 插入钱包信息
 INSERT INTO wallet(id,username,balance) VALUES ('1', 'Jack', '200');
+~~~java
+
 
 #### 订单表
 CREATE TABLE `orders` (
