@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lzj.walletpayment.mapper.WalletMapper">
+
+    <!--wallet表相关的增删改查语句-->
+    <select id="findWalletById" parameterType="int" resultType="Wallet">
+        select * from wallet where id = #{id}
+    </select>
+    <select id="findWalletByName" parameterType="string" resultType="Wallet">
+        select * from wallet where username = #{username}
+    </select>
+    <select id="findWalletByCardName" parameterType="string" resultType="Wallet">
+        select w.* from wallet w INNER JOIN bank_card b ON w.id = b.w_id where b.card_name = #{cardName}
+    </select>
+    <update id="updateWallet" parameterType="wallet">
+        update wallet set balance = #{balance} where id = #{id}
+    </update>
+
+    <!--orders表相关的增删改查语句-->
+    <insert id="addOrders" parameterType="orders" >
+        insert into orders (commodity,money,status,w_id) VALUES (#{commodity},#{money},#{status},#{wId})
+    </insert>
+    <select id="findOrderById" parameterType="int" resultType="Orders">
+        select * from orders where o_id = #{oId}
+    </select>
+    <update id="updateOrders" parameterType="orders">
+        update orders set status = #{status} where o_id = #{oId}
+    </update>
+
+    <!--record表相关的增删改查语句-->
+    <select id="findRecordById" parameterType="int" resultType="Record">
+        select * from record where w_id = #{wId}
+    </select>
+    <insert id="addRecord" parameterType="record">
+        insert into record (money,balance,type,createTime,w_id) VALUE (#{money},#{balance},#{type},#{createTime},#{wId})
+    </insert>
+
+    <!--bank_card表相关的增删改查语句-->
+    <select id="findBankCardByName" parameterType="string" resultType="BankCard">
+        select * from bank_card where card_name = #{cardName}
+    </select>
+    <update id="updateBankCard" parameterType="bankCard">
+        update bank_card set balance = #{balance}, updateTime=#{updateTime} where b_id = #{bId}
+    </update>
+
+
+</mapper>

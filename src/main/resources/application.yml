@@ -1,0 +1,15 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/data?useUnicode=true&characterEncoding=utf8
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+mybatis-plus:
+  type-aliases-package: com.lzj.walletpayment.entity
+  mapper-locations: classpath:mapper/*.xml
+  # mybatis-plus：默认自动将下划线转驼峰命名
