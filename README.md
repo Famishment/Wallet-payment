@@ -16,10 +16,11 @@ PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ##### 插入钱包信息
 INSERT INTO wallet(id,username,balance) VALUES ('1', 'Jack', '200');
-~~~java
+~~~
 
 
 #### 订单表
+~~~java
 CREATE TABLE `orders` (
 `o_id` int(11) NOT NULL AUTO_INCREMENT,
 `commodity` varchar(255) DEFAULT NULL,
@@ -36,6 +37,7 @@ INSERT INTO orders(o_id, commodity, money, status, w_id) VALUES ('2', '胡萝卜
 
 
 #### 交易记录表
+~~~java
 CREATE TABLE `record` (
 `r_id` int(11) NOT NULL AUTO_INCREMENT,
 `money` decimal(12,0) DEFAULT NULL,
@@ -48,8 +50,10 @@ PRIMARY KEY (`r_id`)
 ##### 插入交易记录信息
 INSERT INTO record(r_id, money, balance, type, w_id) VALUES ('2', '20', '200', '1', '1');
 INSERT INTO record(r_id, money, balance, type, w_id) VALUES ('3', '20', '220', '1', '1');
+~~~
 
 #### 银行卡表
+~~~java
 CREATE TABLE `bank_card` (
 `b_id` int(11) NOT NULL AUTO_INCREMENT,
 `card_name` varchar(32) DEFAULT NULL,
@@ -60,3 +64,4 @@ PRIMARY KEY (`b_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ##### 插入银行卡信息
 INSERT INTO bank_card(b_id, card_name, balance, w_id) VALUES ('1', '6222111', '300', '1');
+~~~
